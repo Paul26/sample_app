@@ -42,8 +42,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '1')
     # Check exercise in section 9.3.1
     # assert_equal FILL_IN, assigns(:user).FILL_IN  #******************
-    binding.pry
-    assert_equal '1', assigns(:user).remember_token
+    # assert_equal '1', assigns(:user).remember_token
+    assert_equal assigns(:user).remember_token, cookies['remember_token']
     assert_not_empty cookies['remember_token']
   end
 
